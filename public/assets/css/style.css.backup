@@ -1,0 +1,306 @@
+:root{
+    --coffe: #b6895b;
+    --black: #000000;
+    --mist:rgba(240, 240, 240, 0.8);
+}
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+}
+
+/* Navbar */
+.navbar{
+    height: 70px;
+    background: transparent;
+    background-color: var(--mist);
+    border-bottom: 3px solid;
+    border-color: var(--coffe);
+
+}
+
+.navbar-nav{
+    padding-left: 0;
+    padding-right: 0;
+    mix-blend-mode: darken;
+}
+
+.navbar a.nav-link{
+    padding-top: 15px;
+}
+
+.navbar .navbar-nav .nav-link.active{
+    font-style: italic;
+    color: var(--coffe);
+}
+
+.navbar a.nav-link:hover{
+    font-style: italic;
+    color: var(--coffe);
+}
+
+.navbar a.userMenu{
+    padding: 4px 20px 0 0;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar a.userMenu:hover{
+    background-color: var(--coffe);
+    color: lightgray;
+    padding: 4px 20px 0 0;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s linear;
+    transform: scaleX(1);
+}
+
+.navbar a.userMenu:focus{
+    background-color: var(--coffe);
+    color: lightgray;
+    padding: 4px 20px 0 0;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s linear;
+    transform: scaleX(1);
+}
+
+.navbar a.userMenu:hover::before{
+    transform: scaleX(0);
+}
+
+.navbar a.userMenu:focus::before{
+    transform: scaleX(0);
+}
+
+.navbar ul.dropdown-menu{
+    background-color: var(--coffe);
+}
+/* Navbar - End*/
+
+/* -------------------------------------------------------- */
+
+/* mainContent - Start */
+section.mainContent{
+    padding-top: 80px;
+}
+/* mainContent - End */
+
+/* -------------------------------------------------------- */
+
+/* Hero - Start */
+section#hero .carousel-item{
+    width: 100%;
+    height: 100vh;
+}
+
+section#hero .carousel-item img{
+    width: 100%;
+}
+
+section#hero div.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2%;
+}
+/* Hero - End */
+
+/* -------------------------------------------------------- */
+
+/* About Us - Start */
+section#ourCompany{
+    padding-top: 100px;
+    width: 100%;
+    height: 100vh;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+/* About Us - End */
+
+/* -------------------------------------------------------- */
+
+/* Our Contact - Start */
+section#ourContact{
+    padding-top:90px;
+    width: 100%;
+    height: 100vh;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+section#ourContact .iconOurContact{
+    position: relative;
+    padding-top: 10px;
+}
+
+section#ourContact img.iconApp{
+    height: 85px;
+    width: 85px;
+}
+
+section#ourContact img.iconMap{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 52%;
+}
+/* Our Contact - End*/
+
+/* -------------------------------------------------------- */
+
+/* Laptop */
+@media(max-width: 1366px){
+    html{
+        font-size: 95%;
+    }
+}
+
+/* Tablet */
+@media(max-width: 758px){
+    html{
+        font-size: 65%;
+    }
+
+    /* Tablet Navbar - Start */
+    .navbar-nav{
+        background-color: rgba(240, 240, 240, 0.6);
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 20px;
+        margin-top: 14px;
+        border-top: 3px solid;
+        border-bottom: 3px solid;
+        border-color: var(--coffe);
+        mix-blend-mode: darken;
+    }
+
+    .navbar-nav .nav-item:nth-child(1){
+        padding-top: 30px;
+    }
+
+    ul.navbar-nav li.nav-item.userNavbarItem{
+        margin: 20px 0 0 0;
+        border-top: 1px solid var(--coffe);
+    }
+    /* Tablet Navbar - End */
+
+    /* -------------------------------------------------------- */
+
+    /* Tablet mainContent - Start */
+    section.mainContent{
+        padding-top: 70px;
+    }
+    /* Tablet mainContent - End */
+
+    /* -------------------------------------------------------- */
+
+    /* Tablet Hero - Start */
+    section#hero .carousel-item{
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        position: relative;
+    }
+
+    section#hero .carousel-item img{
+        position: relative;
+        height: 100vh;
+        width: auto;
+        right: 50%;
+    }    
+
+    section#hero div.carousel-caption{
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        bottom: 5%;
+        position: absolute;
+    }
+    /* Tablet Hero - End */
+}
+
+/* Phone */
+@media(max-width: 450px){
+    html{
+        font-size: 60%;
+    }
+
+    /* Phone Navbar - Start */
+    .navbar-nav{
+        background-color: rgba(240, 240, 240, 0.6);
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 20px;
+        margin-top: 14px;
+        border-top: 3px solid;
+        border-bottom: 3px solid;
+        border-color: var(--coffe);
+        mix-blend-mode: darken;
+    }
+
+    .navbar-nav .nav-item:nth-child(1){
+        padding-top: 30px;
+    }
+
+    ul.navbar-nav li.nav-item.userNavbarItem{
+        margin: 20px 0 0 0;
+        border-top: 1px solid var(--coffe);
+    }
+    /* Phone Navbar - End */
+
+    /* -------------------------------------------------------- */
+
+    /* Phone mainContent - Start */
+    section.mainContent{
+        padding-top: 60px;
+    }
+    /* Phone mainContent - Start */
+
+    /* -------------------------------------------------------- */
+
+    /* Phone Hero - Start */
+    section#hero .carousel-item{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: auto;
+        position: relative;
+    }
+
+    section#hero .carousel-item img{
+        position: relative;
+        height: 100vh;
+        width: auto;
+        right: 80%;
+    } 
+
+    section#hero div.carousel-caption{
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        bottom: 10%;
+        position: absolute;
+    }
+    /* Phone Hero - End */
+}
