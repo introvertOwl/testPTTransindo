@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
 use Illuminate\Http\Request;
 
-class MobilController extends Controller
+class RentalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,6 @@ class MobilController extends Controller
     public function index()
     {
         //
-        return view('mobil.index');
     }
 
     /**
@@ -26,7 +24,6 @@ class MobilController extends Controller
     public function create()
     {
         //
-        return view('mobil.add');
     }
 
     /**
@@ -37,24 +34,7 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        // Proses validasi input
-        $validatedData = $request->validate([
-            'merek'     => ['required'],
-            'model'     => ['required'],
-            'noplat'    => ['required'],
-            'tarifsewa' => ['required']
-        ]);
-        
-        // Store Data ke table mobil
-        Car::create([
-            'merek'     => $validatedData['merek'],
-            'model'     => $validatedData['model'],
-            'noplat'    => $validatedData['noplat'],
-            'tarifsewa' => $validatedData['tarifsewa'],
-        ]);
-
-        // redirect
-        redirect('/mobil');
+        //
     }
 
     /**
@@ -76,7 +56,7 @@ class MobilController extends Controller
      */
     public function edit($id)
     {
-        // 
+        //
     }
 
     /**

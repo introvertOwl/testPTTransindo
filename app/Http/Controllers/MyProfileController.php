@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
+use App\Models\User;
+use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 
-class MobilController extends Controller
+class MyProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class MobilController extends Controller
      */
     public function index()
     {
-        //
-        return view('mobil.index');
+        // 
+        return view('myprofile.index');
     }
 
     /**
@@ -26,7 +27,6 @@ class MobilController extends Controller
     public function create()
     {
         //
-        return view('mobil.add');
     }
 
     /**
@@ -37,24 +37,7 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        // Proses validasi input
-        $validatedData = $request->validate([
-            'merek'     => ['required'],
-            'model'     => ['required'],
-            'noplat'    => ['required'],
-            'tarifsewa' => ['required']
-        ]);
-        
-        // Store Data ke table mobil
-        Car::create([
-            'merek'     => $validatedData['merek'],
-            'model'     => $validatedData['model'],
-            'noplat'    => $validatedData['noplat'],
-            'tarifsewa' => $validatedData['tarifsewa'],
-        ]);
-
-        // redirect
-        redirect('/mobil');
+        //
     }
 
     /**
@@ -76,7 +59,8 @@ class MobilController extends Controller
      */
     public function edit($id)
     {
-        // 
+        //
+        return view('myprofile.edit');
     }
 
     /**
@@ -88,7 +72,26 @@ class MobilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Proses Validasi input
+        $validatedData = $request->validate([
+            'nama'      => ['required', 'max:50', 'min:3'],
+            'alamat'    => ['required', 'max:200', 'min:20'],
+            'telepon'   => ['required', 'max:14', 'min:12'],
+            'sim'       => ['required', 'max:16', 'min:14'],
+            'password'  => ['required']
+        ]);
+
+        // Proses Update table users
+        User::where('id', $id)->update([
+            'nama'      => $validatedData['nama'],
+            'alamat'    => $validatedData['alamat'],
+            'telepon'   => $validatedData['telepon'],
+            'sim'       => $validatedData['sim'],
+            'password'  => $validatedData['password']
+        ]);
+
+        // Redirect dengan pesan
+        return redirect('/myprofile')->with('edit_profile_success', 'Proses edit profile '.$validatedData['nama'].' berhasil!');
     }
 
     /**

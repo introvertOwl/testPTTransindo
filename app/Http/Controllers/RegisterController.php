@@ -37,13 +37,13 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // Prose Validasi input
+        // Proses Validasi input
         $validatedData = $request->validate([
-            'nama'      => ['required'],
-            'alamat'    => ['required'],
-            'telepon'   => ['required'],
-            'sim'       => ['required'],
-            'password'  => ['required'],
+            'nama'      => ['required', 'max:50', 'min:3'],
+            'alamat'    => ['required', 'max:200', 'min:20'],
+            'telepon'   => ['required', 'max:14', 'min:12'],
+            'sim'       => ['required', 'max:16', 'min:14'],
+            'password'  => ['required']
         ]);
 
         // Password Encrypt
@@ -59,7 +59,8 @@ class RegisterController extends Controller
         ]);
 
         //
-        redirect('/');
+        return redirect('/login')->with('reg_success', 'Proses registrasi akun Anda sukses. Silahkan untuk login.');
+
     }
 
     /**
